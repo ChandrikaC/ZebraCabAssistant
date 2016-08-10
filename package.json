@@ -1,0 +1,22 @@
+{
+  "name": "ZebraCabAssistant",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.1.1",
+    "geolocator": "^2.0.0",
+    "math": "0.0.3",
+    "nodemailer": "^2.5.0",
+    "randomstring": "^1.1.5",
+    "request": "^2.74.0",
+    "restify": "^4.1.1",
+    "validator": "^5.5.0"
+  }
+}

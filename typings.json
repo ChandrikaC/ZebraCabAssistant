@@ -1,0 +1,7 @@
+{
+  "globalDependencies": {
+    "node": "registry:dt/node#6.0.0+20160801161248",
+    "request": "registry:dt/request#0.0.0+20160726020908",
+    "restify": "registry:dt/restify#2.0.0+20160726153409"
+  }
+}
