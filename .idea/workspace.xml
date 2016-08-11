@@ -31,7 +31,7 @@
       <file leaf-file-name="ZebraCabAssistant-SkypeNew.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
+            <state relative-caret-position="441">
               <caret line="432" column="65" selection-start-line="432" selection-start-column="65" selection-end-line="432" selection-end-column="65" />
               <folding>
                 <element signature="e#6731#10513#0" expanded="false" />
@@ -428,7 +428,7 @@
       <workItem from="1470806807294" duration="7969000" />
       <workItem from="1470820996528" duration="1041000" />
       <workItem from="1470824447063" duration="5942000" />
-      <workItem from="1470894426945" duration="13044000" />
+      <workItem from="1470894426945" duration="13107000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu for&#10;Customer Care&#10;Promo code&#10;Calculate duration and Fare&#10;Book a ride">
       <created>1470900364753</created>
@@ -451,11 +451,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470909776396</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="calculate fare function added to send aprx fare">
+      <created>1470910443861</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1470910443861</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128409000" />
+    <option name="totallyTimeSpent" value="128472000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
@@ -914,7 +921,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
+        <state relative-caret-position="441">
           <caret line="432" column="65" selection-start-line="432" selection-start-column="65" selection-end-line="432" selection-end-column="65" />
           <folding>
             <element signature="e#6731#10513#0" expanded="false" />
