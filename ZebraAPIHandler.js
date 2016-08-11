@@ -5,6 +5,9 @@
 
 var request = require('request').defaults({jar: true});
 var zebraConfig=require('./config/Zebra.config');
+var NodeGeocoder = require('node-geocoder');
+
+
 
 function login(callback) {
     request({
@@ -28,27 +31,23 @@ function login(callback) {
 
     })
 }
-function getCurrentLocationDetails(callback) {
-    request.get('http://freegeoip.net/json/', function (err, data) {
-        if (err)
-            console.error(err);
-        else {
-            var body = JSON.parse(data.body);
-            var skypeReply = "Total Devices: " + body.ip;
-            skypeReply += "\n\nTotal Rows: " + body.country_code;
-            skypeReply += "\n\nSynced Rows: " + body.country_name;
-            skypeReply += "\n\nSynced Rows: " + body.region_code;
-            skypeReply += "\n\nSynced Rows: " + body.region_name;
-            skypeReply += "\n\nSynced Rows: " + body.city;
-            skypeReply += "\n\nSynced Rows: " + body.zip_code;
-            skypeReply += "\n\nSynced Rows: " + body.time_zone;
-            skypeReply += "\n\nSynced Rows: " + body.latitude;
-            skypeReply += "\n\nSynced Rows: " + body.longitude;
+function getLocationDetails(location, callback) {
+    var options = {
+        provider: 'google',
+        httpAdapter: 'https',
+        apiKey: 'AIzaSyBH8pkxwnK4HrOntCa03B1VF2DIZpAiARc',
+        formatter: null
+    };
 
-            if (callback)
-                callback(skypeReply);
-        }
-    });
+    var geoCoder = NodeGeocoder(options);
+
+    geoCoder.geocode(location.toString())
+        .then(function(res) {
+            console.log(res);
+        })
+        .catch(function(err) {
+            console.log(err);
+        });
 }
 /*function listDevices(callback) {
     getDevicesFromHost(function (list) {
@@ -200,7 +199,7 @@ function getDevicesFromHost(callback) {
 
 module.exports={
     login:login,
-    currentLocation:getCurrentLocationDetails
+    currentLocation:getLocationDetails
     /*stats:gdmStats,
     listDevices:listDevices,
     deviceData:deviceData,

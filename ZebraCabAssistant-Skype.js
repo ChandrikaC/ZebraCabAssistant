@@ -130,6 +130,7 @@ bot.dialog('/', intents);*/
 var mailSender = require('nodemailer');
 var randomString = require('randomstring');
 var validator = require('validator');
+var geoCoder = require('node-geocoder');
 
 bot.dialog('/', [
     function (session) {
@@ -159,6 +160,7 @@ bot.dialog('/', [
             else {
                 next();
             }*/
+
 
             session.beginDialog('/ensureProfile',session.userData.profile);
 

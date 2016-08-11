@@ -137,7 +137,7 @@ bot.dialog('/', luisDialog);
 
 
 require('./ZebradialogHandler').init(luisDialog,builder,bot);
-
+var NodeGeocoder = require('node-geocoder');
 
 
 ZebraAPI.login(function (success) {
@@ -207,7 +207,7 @@ bot.dialog('/ensureProfile', [
     function(session,results,next) {
         if (results.response) {
             {
-                session.dialogData.profile.emailid ='<a href="mailto:chandrikac@winjit.com">chandrikac@winjit.com</a>';
+                session.dialogData.profile.emailid =results.response;
                 //session.dialogData.profile.emailid = results.response.body;
                 //console.log(session.dialogData.profile.emailid.);
                 if (validator.isEmail(session.dialogData.profile.emailid)) {
@@ -275,7 +275,7 @@ bot.dialog('/help', [
     function (session) {
         //builder.Prompts.choice(session, "What demo would you like to run?", "Book a ride|Find Nearest Cabs|(quit)");
         var style = builder.ListStyle.button;
-        builder.Prompts.choice(session, "Please select your service from below options", "Book a ride|Find Nearest Cabs|Quit", { listStyle: style });
+        builder.Prompts.choice(session, "Please select your service from below options", "Book a ride|Calculate Fare and Duration|Customer Care|Promo Codes|Quit", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != 'Quit') {
@@ -297,17 +297,48 @@ bot.dialog('/help', [
 bot.dialog('/CabBooking',[
 
     function (session,results) {
-
         session.userData.BookingDetails = {};
-        builder.Prompts.text(session, "Please tell me your destination?");
+        builder.Prompts.text(session, "May I ask your source location?");
     },
     function (session, results, next) {
         if (results.response) {
-            session.userData.BookingDetails.Place = results.response;
+            session.userData.BookingDetails.FromPlace = results.response;
+            zebraAPI.currentLocation(function(location,results){session.send(results)});
+            builder.Prompts.text(session, "May I ask your destination location?");
+        }
+        else {
+            next();
+        }
+
+
+    },
+    function (session, results, next) {
+        if (results.response) {
+            session.userData.BookingDetails.ToPlace = results.response;
+            zebraAPI.currentLocation(function(location,results){session.send(results)});
             builder.Prompts.time(session, "what time you want your ride?");
         }
         else {
             next();
+        }
+
+        function getLocationCordinates(location)    {
+            var options = {
+                provider: 'google',
+                httpAdapter: 'https',
+                apiKey: 'AIzaSyBH8pkxwnK4HrOntCa03B1VF2DIZpAiARc',
+                formatter: null
+            };
+
+            var geoCoder = NodeGeocoder(options);
+
+            geoCoder.geocode(location.toString())
+                .then(function(res) {
+                    console.log(res);
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
         }
     },
     function (session, results) {
@@ -316,8 +347,8 @@ bot.dialog('/CabBooking',[
         }
 
         // Return to cab booking to passenger
-        if (session.userData.BookingDetails.Place && session.userData.BookingDetails.CabTime) {
-            var CabPlace = session.userData.BookingDetails.Place.toString();
+        if (session.userData.BookingDetails.ToPlace && session.userData.BookingDetails.CabTime) {
+            var CabPlace = session.userData.BookingDetails.ToPlace.toString();
             var CabArrivingTime = session.userData.BookingDetails.CabTime;
             var isAM = CabArrivingTime.getHours() < 12;
             session.send('The ride has been book to %s at %d/%d/%d %d:%02d%s',CabPlace,
@@ -331,6 +362,7 @@ bot.dialog('/CabBooking',[
             });
         }
     }
+
 ]);
 /*
 bot.dialog('/FindNearestCabs',[

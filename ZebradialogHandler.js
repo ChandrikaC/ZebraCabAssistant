@@ -8,48 +8,58 @@ var zebraAPI = require('./ZebraAPIHandler');
 
 module.exports.init=function(luisDialog,builder)
 {
-
+    luisDialog.matches('cabbooking','/CabBooking');
     //luisDialog.onBegin([]);
-
+/*
     luisDialog.matches('cabbooking',[
 
         function (session,args,next) {
             session.userData.BookingDetails = {};
-            /*session.userData.BookingDetails.FromPlace  = builder.EntityRecognizer.findEntity(args.entities, 'from').entity;*/
-            if(builder.EntityRecognizer.findEntity(args.entities,'to'))
-                session.userData.BookingDetails.ToPlace  = builder.EntityRecognizer.findEntity(args.entities, 'to').entity;
-
-
-            console.log(session.userData.BookingDetails.ToPlace);
-            if(!session.userData.BookingDetails.ToPlace){
-                //getMyLocation();
-                builder.Prompts.text(session, "Okay...May I know about your destination please?");
+            if(builder.EntityRecognizer.findEntity(args.entities,'from')) {
+                session.userData.BookingDetails.FromPlace = builder.EntityRecognizer.findEntity(args.entities, 'from').entity;
+                getCurrentLocation(results.response);
+            }
+          //console.log(session.userData.BookingDetails.FromPlace);
+            if(!session.userData.BookingDetails.FromPlace){
+                builder.Prompts.text(session, "May I know about your current location please?");
             }
             else{
                 next();
             }
-            function getMyLocation() {
-                zebraAPI.currentLocation(function(results){session.send(results)});
-            }
 
         },
-        function (session, results, next) {
-            console.log(session.userData.BookingDetails.CabTime);
-            if(!session.userData.BookingDetails.CabTime) {
-                if (!session.userData.BookingDetails.ToPlace) {
+        function (session,results,args,next) {
+            session.userData.BookingDetails = {};
+            session.userData.BookingDetails.FromPlace = results.response;
+            console.log(results.response);
+            getCurrentLocation(results.response);
+            if(builder.EntityRecognizer.findEntity(args.entities,'to'))
+                session.userData.BookingDetails.ToPlace  = builder.EntityRecognizer.findEntity(args.entities, 'to').entity;
+
+
+            //console.log(session.userData.BookingDetails.ToPlace);
+            if(!session.userData.BookingDetails.ToPlace){
+                //getMyLocation();
+                builder.Prompts.text(session, "Okay...May I ask your destination please?");
+            }
+            else{
+                next();
+            }
+            function getCurrentLocation(location) {
+                zebraAPI.currentLocation(function(location,results){session.send(results)});
+            }
+
+
+        },
+        function (session, results) {
+            session.userData.BookingDetails.ToPlace = results.returns;
+            console.log(session.userData.BookingDetails.ToPlace);
+            if (!session.userData.BookingDetails.ToPlace) {
                     builder.Prompts.time(session, "Thanks... May I ask at what time you want your ride?");
                 }
                 if (session.userData.BookingDetails.ToPlace) {
                     builder.Prompts.time(session, "Okay... May I ask at what time you want your ride?");
                 }
-                else {
-                    next();
-                }
-            }
-            else{
-                next();
-            }
-
         },
         function (session, results) {
             //if(!session.userData.BookingDetails.CabTime) {
@@ -63,22 +73,23 @@ module.exports.init=function(luisDialog,builder)
 
 
             // Return to cab booking to passenger
-            if (session.userData.BookingDetails.ToPlace && session.userData.BookingDetails.CabTime) {
-                var CabPlace = session.userData.BookingDetails.ToPlace.toString();
-                var CabArrivingTime = session.userData.BookingDetails.CabTime;
-                var isAM = CabArrivingTime.getHours() < 12;
-                session.send('The ride has been book to %s at %d/%d/%d %d:%02d%s',CabPlace,
-                    CabArrivingTime.getMonth() + 1, CabArrivingTime.getDate(), CabArrivingTime.getFullYear(),
-                    isAM ? CabArrivingTime.getHours() : CabArrivingTime.getHours() - 12, CabArrivingTime.getMinutes(), isAM ? 'am' : 'pm');
-                session.endDialog();
+            //if (session.userData.BookingDetails.FromPlace && session.userData.BookingDetails.ToPlace && session.userData.BookingDetails.CabTime) {
 
-            } else {
+                //var CabPlace = session.userData.BookingDetails.ToPlace;
+               // var CabArrivingTime = session.userData.BookingDetails.CabTime;
+               // var isAM = CabArrivingTime.getHours() < 12;
+                //session.send('The ride has been book to %s at %d/%d/%d %d:%02d%s',CabPlace,
+                   // CabArrivingTime.getMonth() + 1, CabArrivingTime.getDate(), CabArrivingTime.getFullYear(),
+                   // isAM ? CabArrivingTime.getHours() : CabArrivingTime.getHours() - 12, CabArrivingTime.getMinutes(), isAM ? 'am' : 'pm');
+                //session.endDialog();
+
+          /*  } else {
                 session.endDialogWithResult({
                     resumed: builder.ResumeReason.notCompleted
                 });
-            }
-        }
-    ]);
+            }*/
+       // }
+    //]);
 
     /*dialog.matches('FindNearestCabs',[
 
@@ -86,8 +97,8 @@ module.exports.init=function(luisDialog,builder)
 
             session.send("Your nearest cabs are!!");
         }
-    ]);*/
-
+    ]);
+*/
     luisDialog.matches('greetings', [
         function (session) {
             if(session.userData.name && session.userData.emailid) {
