@@ -124,7 +124,7 @@ bot.use(builder.Middleware.dialogVersion({ version: 1.0, resetCommand: /^reset/i
 
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 //bot.beginDialogAction('help', '/help', { matches: /^help/i });
-bot.beginDialogAction('menu', '/menu', { matches: /^menu/i });
+//bot.beginDialogAction('menu', '/menu', { matches: /^menu/i });
 
 //=========================================================
 // Bots Dialogs
@@ -275,7 +275,7 @@ bot.dialog('/help', [
     function (session) {
         //builder.Prompts.choice(session, "What demo would you like to run?", "Book a ride|Find Nearest Cabs|(quit)");
         var style = builder.ListStyle.button;
-        builder.Prompts.choice(session, "Please select your service from below options", "Book a ride|Calculate Fare and Duration|Customer Care|Promo Codes|Quit", { listStyle: style });
+        builder.Prompts.choice(session, "Please select your service from below options", "Book a ride|Calculate Fare|Customer Care|Promo Codes|Quit", { listStyle: style });
     },
     function (session, results) {
         if (results.response && results.response.entity != 'Quit') {
@@ -284,16 +284,50 @@ bot.dialog('/help', [
             if(results.response.entity.toString() == 'Book a ride') {
                 session.beginDialog('/CabBooking');
             }
-            else if(results.response.entity.toString() == 'Find Nearest Cabs'){
-                session.beginDialog('/FindNearestCabs');
+            else if(results.response.entity.toString() == 'Promo Codes'){
+                session.beginDialog('/PromoCodes');
+            }
+            else if(results.response.entity.toString() == 'Customer Care'){
+                session.beginDialog('/CustomerCare');
+            }
+            else if(results.response.entity.toString() == 'Calculate Fare'){
+                session.beginDialog('/calculatefare');
             }
         } else {
             // Exit the menu
             session.endDialog();
         }
     }
-]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
+]).reloadAction('reloadMenu', null, { matches: /^help|show help/i });
 
+bot.dialog('/CustomerCare',[
+function(session){
+    session.send("Customer Care:\n\nPhone: 0861 105 105\n\nEmail:info@zebracabs.co.za");
+    session.endDialog();
+}
+]);
+
+bot.dialog('/PromoCodes',[
+    function(session){
+        var msg = new builder.Message(session)
+            .textFormat(builder.TextFormat.xml)
+            .attachments([
+                new builder.HeroCard(session)
+                    .title("Promo Codes")
+                    .subtitle("Zebra Cabs Promos")
+                    .text("Sharing is caring with the new “Free Trips” feature on the Zebra Cabs app."+
+                "Share your unique promo code for a free trip up to the value of R150. Once your friends have taken their first free trip using your Promo Code, we’ll give you a free trip, too."+
+            "Who says nice guys finish last? T’s and C’s apply.")
+                    .images([
+                        builder.CardImage.create(session, "https://lh5.googleusercontent.com/-SeXFN3LiTCo/AAAAAAAAAAI/AAAAAAAAABA/Vk7GvwaQ-J4/s0-c-k-no-ns/photo.jpg")
+                    ])
+                    .tap(builder.CardAction.openUrl(session, "https://www.facebook.com/ZebraCabsSA/"))
+            ]);
+        session.send(msg);
+        session.endDialog();
+    }
+
+]);
 bot.dialog('/CabBooking',[
 
     function (session,results) {
@@ -303,7 +337,9 @@ bot.dialog('/CabBooking',[
     function (session, results, next) {
         if (results.response) {
             session.userData.BookingDetails.FromPlace = results.response;
-            zebraAPI.currentLocation(function(location,results){session.send(results)});
+            ZebraAPI.currentLocation(function(location,results){
+
+            });
             builder.Prompts.text(session, "May I ask your destination location?");
         }
         else {
@@ -315,7 +351,7 @@ bot.dialog('/CabBooking',[
     function (session, results, next) {
         if (results.response) {
             session.userData.BookingDetails.ToPlace = results.response;
-            zebraAPI.currentLocation(function(location,results){session.send(results)});
+            ZebraAPI.currentLocation(function(location,results){session.send(results)});
             builder.Prompts.time(session, "what time you want your ride?");
         }
         else {
@@ -363,6 +399,66 @@ bot.dialog('/CabBooking',[
         }
     }
 
+]);
+
+bot.dialog('/calculatefare',[
+    function (session,results) {
+        session.userData.BookingDetails = {};
+        builder.Prompts.text(session, "May I ask your source location?");
+    },
+    function (session, results, next) {
+        if (results.response) {
+            session.userData.BookingDetails.FromPlace = results.response;
+            ZebraAPI.currentLocation(function(location,results){
+
+            });
+            builder.Prompts.text(session, "May I ask your destination location?");
+        }
+        else {
+            next();
+        }
+
+
+    },
+    function (session, results, next) {
+        if (results.response) {
+            session.userData.BookingDetails.ToPlace = results.response;
+            ZebraAPI.currentLocation(function(location,results){session.send(results)});
+
+            if (session.userData.BookingDetails.FromPlace && session.userData.BookingDetails.ToPlace) {
+                var fare = randomString.generate({
+                    length: 2,
+                    charset: 'numeric'
+                });
+               session.send('Your approximate fare would be: %02d', fare);
+                session.endDialog();
+
+            } else {
+                session.endDialogWithResult({
+                    resumed: builder.ResumeReason.notCompleted
+                });
+            }
+        }
+
+        function getLocationCordinates(location)    {
+            var options = {
+                provider: 'google',
+                httpAdapter: 'https',
+                apiKey: 'AIzaSyBH8pkxwnK4HrOntCa03B1VF2DIZpAiARc',
+                formatter: null
+            };
+
+            var geoCoder = NodeGeocoder(options);
+
+            geoCoder.geocode(location.toString())
+                .then(function(res) {
+                    console.log(res);
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+        }
+    }
 ]);
 /*
 bot.dialog('/FindNearestCabs',[

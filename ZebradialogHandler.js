@@ -175,6 +175,9 @@ module.exports.init=function(luisDialog,builder)
     ]);*/
 
     luisDialog.matches('userhelp','/help');
+    luisDialog.matches('Promo','/PromoCodes');
+    luisDialog.matches('customercare','/CustomerCare');
+    luisDialog.matches('calculatefare','/calculatefare')
 
     luisDialog.matches('Gratitude', [
         function (session) {

@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7e4a60b6-ea1d-45dc-8c3c-7d6fa9329836" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js" afterPath="$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ZebradialogHandler.js" afterPath="$PROJECT_DIR$/ZebradialogHandler.js" />
     </list>
     <ignored path="IoTBot-V0.1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,25 +30,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ZebraCabAssistant-SkypeNew.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ZebraCabAssistant-SkypeNew.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="277" column="130" selection-start-line="277" selection-start-column="130" selection-end-line="277" selection-end-column="130" />
+            <state relative-caret-position="237">
+              <caret line="432" column="65" selection-start-line="432" selection-start-column="65" selection-end-line="432" selection-end-column="65" />
               <folding>
-                <element signature="e#5841#6699#0" expanded="false" />
-                <element signature="e#6729#10511#0" expanded="false" />
-                <element signature="e#14089#15180#0" expanded="false" />
+                <element signature="e#6731#10513#0" expanded="false" />
+                <element signature="e#7075#7435#0" expanded="false" />
+                <element signature="e#9649#10511#0" expanded="false" />
+                <element signature="e#11806#11944#0" expanded="false" />
+                <element signature="e#11973#13028#0" expanded="false" />
+                <element signature="e#17519#18610#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZebradialogHandler.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZebradialogHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZebradialogHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+            <state relative-caret-position="294">
+              <caret line="179" column="54" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="54" />
+              <folding>
+                <element signature="e#228#2916#0" expanded="false" />
+                <element signature="e#2931#2968#0" expanded="false" />
+                <element signature="e#3135#3192#0" expanded="false" />
+                <element signature="e#3734#3891#0" expanded="false" />
+                <element signature="e#3899#3903#0" expanded="false" />
+                <element signature="e#3919#4060#0" expanded="false" />
+                <element signature="e#4097#4833#0" expanded="false" />
+                <element signature="e#4841#6813#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="demo-skype.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/demo-skype.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="402">
+              <caret line="224" column="22" selection-start-line="224" selection-start-column="22" selection-end-line="224" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -75,9 +99,12 @@
       <file leaf-file-name="ZebraAPIHandler.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ZebraAPIHandler.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="201" column="19" selection-start-line="201" selection-start-column="4" selection-end-line="201" selection-end-column="19" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+              <folding>
+                <element signature="n#!!block;n#login#0" expanded="false" />
+                <element signature="n#!!block;n#getLocationDetails#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -105,8 +132,8 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/dialogHandler.js" />
         <option value="$PROJECT_DIR$/ZebraCabAssistant-Skype.js" />
-        <option value="$PROJECT_DIR$/ZebradialogHandler.js" />
         <option value="$PROJECT_DIR$/ZebraAPIHandler.js" />
+        <option value="$PROJECT_DIR$/ZebradialogHandler.js" />
         <option value="$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js" />
       </list>
     </option>
@@ -431,7 +458,7 @@
       <workItem from="1470806807294" duration="7969000" />
       <workItem from="1470820996528" duration="1041000" />
       <workItem from="1470824447063" duration="5942000" />
-      <workItem from="1470894426945" duration="5192000" />
+      <workItem from="1470894426945" duration="12403000" />
     </task>
     <task id="LOCAL-00001" summary="Added menu for&#10;Customer Care&#10;Promo code&#10;Calculate duration and Fare&#10;Book a ride">
       <created>1470900364753</created>
@@ -440,11 +467,18 @@
       <option name="project" value="LOCAL" />
       <updated>1470900364754</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added menu for&#10;Customer Care&#10;Promo code&#10;Calculate duration and Fare&#10;Book a ride">
+      <created>1470901298662</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1470901298662</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120557000" />
+    <option name="totallyTimeSpent" value="127768000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1378" height="735" extended-state="0" />
@@ -452,11 +486,11 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21659325" sideWeight="0.66741574" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1770335" sideWeight="0.49706313" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46092504" sideWeight="0.31791484" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.05582137" sideWeight="0.59838474" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19309838" sideWeight="0.33258426" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1770335" sideWeight="0.50293684" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.261563" sideWeight="0.68208516" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2216906" sideWeight="0.40161526" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -525,7 +559,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#228#2916#0" expanded="false" />
+            <element signature="e#2931#2968#0" expanded="false" />
+            <element signature="e#3135#3192#0" expanded="false" />
+            <element signature="e#3734#3891#0" expanded="false" />
+            <element signature="e#3899#3903#0" expanded="false" />
+            <element signature="e#3919#4060#0" expanded="false" />
+            <element signature="e#4097#4833#0" expanded="false" />
+            <element signature="e#4841#6813#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -568,7 +611,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2210">
           <caret line="130" column="28" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="e#228#2916#0" expanded="false" />
+            <element signature="e#2931#2968#0" expanded="false" />
+            <element signature="e#3135#3192#0" expanded="false" />
+            <element signature="e#3734#3891#0" expanded="false" />
+            <element signature="e#3899#3903#0" expanded="false" />
+            <element signature="e#3919#4060#0" expanded="false" />
+            <element signature="e#4097#4833#0" expanded="false" />
+            <element signature="e#4841#6813#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -604,7 +656,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#228#2916#0" expanded="false" />
+            <element signature="e#2931#2968#0" expanded="false" />
+            <element signature="e#3135#3192#0" expanded="false" />
+            <element signature="e#3734#3891#0" expanded="false" />
+            <element signature="e#3899#3903#0" expanded="false" />
+            <element signature="e#3919#4060#0" expanded="false" />
+            <element signature="e#4097#4833#0" expanded="false" />
+            <element signature="e#4841#6813#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -799,13 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/demo-skype.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="207" column="11" selection-start-line="207" selection-start-column="11" selection-end-line="207" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dialogHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="565">
@@ -836,39 +890,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-Skype.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ZebraAPIHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="201" column="19" selection-start-line="201" selection-start-column="4" selection-end-line="201" selection-end-column="19" />
+        <state relative-caret-position="204">
+          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
+          <folding>
+            <element signature="n#!!block;n#login#0" expanded="false" />
+            <element signature="n#!!block;n#getLocationDetails#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-Skype.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="140" column="160" selection-start-line="140" selection-start-column="55" selection-end-line="140" selection-end-column="160" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js">
+    <entry file="file://$PROJECT_DIR$/demo-skype.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="277" column="130" selection-start-line="277" selection-start-column="130" selection-end-line="277" selection-end-column="130" />
-          <folding>
-            <element signature="e#5841#6699#0" expanded="false" />
-            <element signature="e#6729#10511#0" expanded="false" />
-            <element signature="e#14089#15180#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="402">
+          <caret line="224" column="22" selection-start-line="224" selection-start-column="22" selection-end-line="224" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ZebradialogHandler.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="294">
+          <caret line="179" column="54" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="54" />
+          <folding>
+            <element signature="e#228#2916#0" expanded="false" />
+            <element signature="e#2931#2968#0" expanded="false" />
+            <element signature="e#3135#3192#0" expanded="false" />
+            <element signature="e#3734#3891#0" expanded="false" />
+            <element signature="e#3899#3903#0" expanded="false" />
+            <element signature="e#3919#4060#0" expanded="false" />
+            <element signature="e#4097#4833#0" expanded="false" />
+            <element signature="e#4841#6813#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ZebraCabAssistant-SkypeNew.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="432" column="65" selection-start-line="432" selection-start-column="65" selection-end-line="432" selection-end-column="65" />
+          <folding>
+            <element signature="e#6731#10513#0" expanded="false" />
+            <element signature="e#7075#7435#0" expanded="false" />
+            <element signature="e#9649#10511#0" expanded="false" />
+            <element signature="e#11806#11944#0" expanded="false" />
+            <element signature="e#11973#13028#0" expanded="false" />
+            <element signature="e#17519#18610#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
